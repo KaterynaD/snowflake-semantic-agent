@@ -327,7 +327,7 @@ The agent can be configured and evaluated in the Snowflake interface. The projec
 The observed tests in Snowflake and through ChatGPT demonstrate semantic-view queries and use of the custom account lookup. Some important limitations remain:
 
 
-Evaluation examines not just numerical results but also tool selection, ambiguity handling, metric interpretation, customer classification and unsupported claims. See [Evaluation](../evaluation/README.md) and [Query execution analysis](../mcp/query-execution-analysis.md).
+Evaluation examines not just numerical results but also tool selection, ambiguity handling, metric interpretation, customer classification. See [Evaluation](../evaluation/README.md).
 
 ## 8. Repository files
 
