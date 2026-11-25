@@ -1,6 +1,8 @@
 # Analytics Agent Evaluation and Semantic Model Validation
 
-[Project overview](../README.md) · [Semantic Views](../semantic_views/README.md) · [Cortex Agent](../agent/README.md)
+[Project Overview](../README.md) · [Data Model](../data/README.md) · [Semantic Views](../semantic_views/README.md) · [Cortex Agent](../agent/README.md) · [Evaluation](../evaluation/README.md) · [MCP Integration](../mcp/README.md) · [Demo](../demo/README.md)
+
+---
 
 ## 1. Evaluation strategy
 
@@ -37,8 +39,8 @@ Before evaluating natural-language answers, the semantic views must be checked a
 |---|---|
 | Booking | Match monthly and fiscal-year totals using additive booking flows, including adjustments. |
 | ARR | Match each ARR type at the requested month-end; confirm fiscal year-end selection and the default Preliminary ARR metric. |
-| Product Usage  distinct students | Match the precomputed count at the requested organizational level, snapshot, grade and product grain. |
-| Product Usage  launches | Match cumulative launch totals using geographic summation and appropriate month, grade and product rollups. |
+| Product Usage distinct students | Match the precomputed count at the requested organizational level, snapshot, grade and product grain. |
+| Product Usage launches | Match cumulative launch totals using geographic summation and appropriate month, grade and product rollups. |
 
 The custom fiscal and school-year calendars begin in July and end in June. A fiscal-year booking total accumulates twelve months of activity, whereas fiscal-year-end ARR and school-year-end usage select the June snapshot. An incomplete year may instead require the latest available snapshot, depending on the question.
 
@@ -78,7 +80,7 @@ flowchart LR
 | Q03 | ARR | FY 2025/2026 ending ARR | June 2026 snapshot; fiscal month 12 |
 | Q04 | ARR | Top 10 US states by September ARR | Rank state-level ARR in descending order |
 | Q05 | ARR | Top 10 customers by September ARR | Group by customer, not individual account |
-| Q06 | Booking | Total FY 2025/2026 bookings | Sum JulyJune booking flows |
+| Q06 | Booking | Total FY 2025/2026 bookings | Sum July-June booking flows |
 | Q07 | Booking | Monthly FY 2025/2026 bookings | Twelve months in fiscal order |
 | Q08 | Booking | Fiscal-year bookings by category | Use stored `BUCKET` categories |
 | Q09 | Booking | Top 10 US states by fiscal-year bookings | Rank additive fiscal-year totals |
@@ -136,7 +138,7 @@ The `GROUND_TRUTH` object in the existing implementation includes:
 | Field | Purpose |
 |---|---|
 | `ground_truth_output` | Expected numerical answer and business evaluation requirements |
-| `test_id` | Stable case identifier, Q01Q15 |
+| `test_id` | Stable case identifier, Q01-Q15 |
 | `domain` | ARR, BOOKING or USAGE |
 | `expected_semantic_view` | Intended semantic data source (custom metadata) |
 
@@ -238,7 +240,7 @@ Examples include:
 
 The MCP tests provide evidence of the implemented execution path and business capabilities. They were not scored using the same formal evaluation dataset; no combined accuracy score is claimed.
 
-See the planned [MCP query execution analysis](../mcp/query-execution-analysis.md) for detailed SQL evidence.
+
 
 ## 9. Limitations and potential evaluation extensions
 
@@ -255,4 +257,6 @@ For future runs, maintain separate results for numerical correctness, logical co
 | [business_analytics_agent_evaluation.sql](business_analytics_agent_evaluation.sql) | Evaluation source table and dataset creation |
 
 
+---
 
+[Back to Project Overview](../README.md)

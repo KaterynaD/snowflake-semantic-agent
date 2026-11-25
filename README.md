@@ -1,5 +1,9 @@
 # Snowflake-Native Analytics Agent with Semantic Views and MCP
 
+[Project Overview](README.md) · [Data Model](data/README.md) · [Semantic Views](semantic_views/README.md) · [Cortex Agent](agent/README.md) · [Evaluation](evaluation/README.md) · [MCP Integration](mcp/README.md) · [Demo](demo/README.md)
+
+---
+
 **Combining governed business metrics, domain knowledge, and AI reasoning in a Snowflake-native analytics architecture.**
 
 ## Overview
@@ -140,7 +144,7 @@ The observed ChatGPT response combines three KPIs with different reporting bases
 
 ![ChatGPT executive KPI summary using three Snowflake semantic views](assets/screenshots/overview/executive-overview.png) 
 
-See [MCP Integration](mcp/README.md) and the [Snowflake MCPChatGPT connection guide](mcp/snowflake-mcp-chatgpt.md).
+See [MCP Integration](mcp/README.md) and the [Snowflake MCP ChatGPT connection guide](mcp/snowflake-mcp-chatgpt.md).
 
 ## Validation, evaluation, and observability
 
@@ -188,7 +192,7 @@ ORDER BY c.fiscalyear_mon;
 
 ![Snowflake query history showing generated SQL against a semantic view](assets/screenshots/overview/semantic-query-history.png) 
 
-See [Evaluation](evaluation/README.md) and [Query Execution Analysis](mcp/query-execution-analysis.md) for detailed findings.
+
 
 ## Design considerations and limitations
 

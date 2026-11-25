@@ -1,6 +1,8 @@
-# Snowflake-Managed MCP Server  External AI Integration
+# Snowflake-Managed MCP Server External AI Integration
 
-[Project overview](../README.md) · [Cortex Agent](../agent/README.md) · [Semantic Views](../semantic_views/README.md) · [Evaluation](../evaluation/README.md)
+[Project Overview](../README.md) · [Data Model](../data/README.md) · [Semantic Views](../semantic_views/README.md) · [Cortex Agent](../agent/README.md) · [Evaluation](../evaluation/README.md) · [MCP Integration](../mcp/README.md) · [Demo](../demo/README.md)
+
+---
 
 ## 1. Purpose and scope
 
@@ -169,7 +171,7 @@ ALTER SECURITY INTEGRATION CHATGPT_MCP_OAUTH
 
 This was a finding from the tested environment, not a universal configuration requirement. Verify the actual redirect and preserve any existing legitimate alternate URIs before changing the list.
 
-The full [Snowflake MCPChatGPT connection guide](snowflake-mcp-chatgpt.md) documents provisioning, endpoint construction, credential setup, callback troubleshooting, HTTP discovery checks and connection testing. It is maintained separately to avoid duplicating the setup instructions here.
+The full [Snowflake MCP ChatGPT connection guide](snowflake-mcp-chatgpt.md) documents provisioning, endpoint construction, credential setup, callback troubleshooting, HTTP discovery checks and connection testing. It is maintained separately to avoid duplicating the setup instructions here.
 
 ## 6. End-to-end analytical behavior
 
@@ -255,5 +257,8 @@ The SQL filenames follow the proposed lowercase repository layout; rename the ar
 - [Snowflake-managed MCP server](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-agents-mcp)
 - [CREATE MCP SERVER](https://docs.snowflake.com/en/sql-reference/sql/create-mcp-server)
 - [Snowflake OAuth custom clients](https://docs.snowflake.com/en/user-guide/oauth-custom)
-- [Snowflake MCPChatGPT connection guide](snowflake-mcp-chatgpt.md)
+- [Snowflake MCP ChatGPT connection guide](snowflake-mcp-chatgpt.md)
 
+---
+
+[Back to Project Overview](../README.md)

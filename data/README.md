@@ -1,5 +1,9 @@
 # Supporting Dimensional Data Model
 
+[Project Overview](../README.md) · [Data Model](../data/README.md) · [Semantic Views](../semantic_views/README.md) · [Cortex Agent](../agent/README.md) · [Evaluation](../evaluation/README.md) · [MCP Integration](../mcp/README.md) · [Demo](../demo/README.md)
+
+---
+
 The analytics agent is built on top of an existing, populated dimensional data warehouse in Snowflake. This section documents the supporting data structures and their relationship to the semantic layer. Data ingestion, transformation pipelines, warehouse population, and source datasets are outside the scope of this project.
 
 ## Database organization
@@ -92,4 +96,6 @@ The SQL files in this directory describe the database, schemas, tables, and repo
 
 The definitions are provided as architectural reference material, not as a standalone installation or data-loading package. No source datasets are distributed.
 
-[Back to project overview](../README.md)
+---
+
+[Back to Project Overview](../README.md)

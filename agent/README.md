@@ -1,4 +1,4 @@
-# Cortex Agent  Orchestration, Business Knowledge and Custom Tools
+# Cortex Agent Orchestration, Business Knowledge and Custom Tools
 
 [? Project overview](../README.md) | [Semantic Views](../semantic_views/README.md)
 
@@ -143,7 +143,7 @@ This project represents that knowledge using three domain-specific `SKILL.md` fi
 | [financial-metric-interpretation](skills/financial-metric-interpretation/SKILL.md) | Choosing the appropriate ARR type based on reporting intent, distinguishing balances from flows and interpreting financial results |
 | [student-usage-interpretation](skills/student-usage-interpretation/SKILL.md) | Distinct students versus launch events, school-year snapshots, geographic metric selection and overlapping categories |
 
-These skills express business glossary concepts, relationships and rules as natural-language guidance  a lightweight, ontology-like representation of business context. They are not a formal ontology, a knowledge graph or an executable inference engine. The language model interprets and applies the rules to the available evidence.
+These skills express business glossary concepts, relationships and rules as natural-language guidance a lightweight, ontology-like representation of business context. They are not a formal ontology, a knowledge graph or an executable inference engine. The language model interprets and applies the rules to the available evidence.
 
 ### Financial metric interpretation: reporting intent matters
 
@@ -167,7 +167,7 @@ The skill directs the agent to use the geographic metric matching the requested 
 
 It also distinguishes `STUDENTS_LAUNCHES` from unique students. Launch events can be summed across nonoverlapping geographic entities, but not across cumulative school-year snapshots or overlapping product and grade rollups. In particular, one lesson can belong to several products, so product-level launch counts cannot be summed to obtain the overall number of actual launches. The precomputed `(All)` product total is necessary when atomic events are unavailable.
 
-Both fiscal and school years run JulyJune in this project. The skill tells the agent which reporting concept to apply and how to label the results. A usage snapshot for September 2026 represents cumulative activity since July 2026, not September-only activity.
+Both fiscal and school years run July-June in this project. The skill tells the agent which reporting concept to apply and how to label the results. A usage snapshot for September 2026 represents cumulative activity since July 2026, not September-only activity.
 
 ### Customer and account context
 
@@ -351,3 +351,7 @@ The account knowledge view and supporting tables are documented in [Data Model](
 The semantic layer provides governed calculations. The account lookup provides contextual facts. The skills provide explicit business definitions and interpretation rules. Cortex Agent brings these components together to answer questions that require both analytical retrieval and business reasoning.
 
 The central experiment is whether an AI agent can apply the business meaning of metrics and entities consistently, rather than merely generate syntactically valid SQL.
+
+---
+
+[Back to Project Overview](../README.md)

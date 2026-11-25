@@ -1,5 +1,9 @@
 # Connecting a Snowflake-managed MCP Server to ChatGPT
 
+[Project Overview](../README.md) · [Data Model](../data/README.md) · [Semantic Views](../semantic_views/README.md) · [Cortex Agent](../agent/README.md) · [Evaluation](../evaluation/README.md) · [MCP Integration](../mcp/README.md) · [Demo](../demo/README.md)
+
+---
+
 **Authentication:** Snowflake OAuth 2.0 (custom confidential client)  
 **Client:** ChatGPT Snowflake Plugin  
 **Validated:** November 24, 2026
@@ -379,3 +383,7 @@ These checks establish endpoint reachability and discovery from your computer. T
 ## Validation scope
 
 The connection workflow, three HTTP discovery checks, alternate redirect URI fix, MCP tool discovery, and one live ARR query were validated in the project environment on November 24, 2026. The provisioning SQL is a documentation-based reconstruction with deployment-specific placeholders, not a freshly executed installation script. Review grants and object names against your environment before running it.
+
+---
+
+[Back to Project Overview](../README.md)

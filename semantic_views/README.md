@@ -1,6 +1,8 @@
-# Snowflake Semantic Views  Business Metrics and Aggregation Semantics
+# Snowflake Semantic Views Business Metrics and Aggregation Semantics
 
-[Project overview](../README.md) · [Data model](../data/README.md) · [Cortex Agent](../agent/README.md)
+[Project Overview](../README.md) · [Data Model](../data/README.md) · [Semantic Views](../semantic_views/README.md) · [Cortex Agent](../agent/README.md) · [Evaluation](../evaluation/README.md) · [MCP Integration](../mcp/README.md) · [Demo](../demo/README.md)
+
+---
 
 ## Objective
 
@@ -44,7 +46,7 @@ Booking and ARR declare relationships to account and month dimensions in their s
 
 ## 2. Custom reporting calendars
 
-The business operates on July-June fiscal and school-year calendars rather than January-December reporting years. `DW.COMMON.DIM_MONTH` provides the custom calendar at monthly grain, joined using `MON_LASTDAY`.
+The business operates on July-June fiscal and school-year calendars rather than January-December reporting years. `DW.COMMON.DIM_MONTH` provides the custom calendar at monthly grain, joined using `MON_LASTDAY`.
 
 | Attribute | Meaning | September 2026 example |
 | --- | --- | --- |
@@ -63,7 +65,7 @@ Calendar month filters use `MON_YEAR`; annual financial reporting uses `FISCALYE
 
 For snapshot metrics, a year filter alone selects the latest **available** snapshot within the result group, not necessarily June. A question explicitly requiring June or a consistent comparison date needs an explicit month filter. Missing snapshots must not silently be represented as completed reporting periods.
 
-## 3. Booking  fully additive financial activity
+## 3. Booking fully additive financial activity
 
 Object: `DW.REVENUE.BOOKING`.
 
@@ -87,7 +89,7 @@ FROM SEMANTIC_VIEW(
 );
 ```
 
-## 4. ARR  semi-additive snapshot balances
+## 4. ARR semi-additive snapshot balances
 
 Object: `DW.REVENUE.ARR`.
 
@@ -138,7 +140,7 @@ Financial reporting uses the flattened Customer-District-Account hierarchy in `D
 
 These values are illustrative, not project data.
 
-## 5. Product Usage  non-additive pre-aggregated distinct counts
+## 5. Product Usage non-additive pre-aggregated distinct counts
 
 Object: `DW.USAGE.PRODUCT_USAGE`.
 
@@ -378,3 +380,7 @@ Semantic model reconciliation is distinct from evaluating an AI-generated answer
 
 
 See [Agent](../agent/README.md) for business knowledge and orchestration, and [Evaluation](../evaluation/README.md) for evaluation methodology and findings.
+
+---
+
+[Back to Project Overview](../README.md)
