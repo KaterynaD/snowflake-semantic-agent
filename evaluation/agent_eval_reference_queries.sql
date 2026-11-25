@@ -1,0 +1,160 @@
+-- Business Analytics Assistant - ground-truth SQL reference set
+-- Source: the uploaded ARR.sql, Booking.sql, and PRODUCT_USAGE.sql.
+-- Run each SELECT independently in a Snowflake worksheet; record results in agent_eval_questions.csv.
+-- These queries use the actual semantic views and do not query source fact tables.
+-- Note: ARR view is DW.REVENUE.ARR in the uploaded SQL, not ACCOUNT_ARR.
+
+-- Q01 | ARR | What was our ARR in September 2026?
+-- Expected behavior: ARR defaults to Preliminary; fixed September 2026 snapshot.
+SELECT ARR
+FROM SEMANTIC_VIEW(
+    DW.REVENUE.ARR
+    METRICS ARR
+    WHERE DIM_MONTH.MON_YEAR = 202609
+);
+
+-- Q02 | ARR | Compare Preliminary, True, and Backdated ARR in September 2026.
+-- Expected behavior: three independent balances, never added together.
+SELECT PRELIMINARY_ARR, TRUE_ARR, BACKDATED_ARR
+FROM SEMANTIC_VIEW(
+    DW.REVENUE.ARR
+    METRICS
+        VW_FACT_ARR.PRELIMINARY_ARR,
+        VW_FACT_ARR.TRUE_ARR,
+        VW_FACT_ARR.BACKDATED_ARR
+    WHERE DIM_MONTH.MON_YEAR = 202609
+);
+
+-- Q03 | ARR | What was ARR at the end of fiscal year 2025/2026?
+-- June is explicitly requested; don't substitute an earlier snapshot.
+SELECT ARR
+FROM SEMANTIC_VIEW(
+    DW.REVENUE.ARR
+    METRICS ARR
+    WHERE DIM_MONTH.FISCALYEAR = '2025/2026'
+      AND DIM_MONTH.FISCALYEAR_MON = 12
+);
+
+-- Q04 | ARR | Which 10 US states had the highest ARR in September 2026?
+SELECT STATE_CODE, ARR
+FROM SEMANTIC_VIEW(
+    DW.REVENUE.ARR
+    DIMENSIONS DIM_ACCOUNT.STATE_CODE
+    METRICS ARR
+    WHERE DIM_MONTH.MON_YEAR = 202609
+      AND DIM_ACCOUNT.STATE_CODE NOT IN ('Unknown')
+)
+ORDER BY ARR DESC
+LIMIT 10;
+
+-- Q05 | ARR | Which 10 customers had the highest ARR in September 2026?
+SELECT CUSTOMER_NAME, ARR
+FROM SEMANTIC_VIEW(
+    DW.REVENUE.ARR
+    DIMENSIONS DIM_ACCOUNT.CUSTOMER_NAME
+    METRICS ARR
+    WHERE DIM_MONTH.MON_YEAR = 202609
+)
+ORDER BY ARR DESC
+LIMIT 10;
+
+-- Q06 | BOOKINGS | What were total bookings in fiscal year 2025/2026?
+SELECT BOOKING
+FROM SEMANTIC_VIEW(
+    DW.REVENUE.BOOKING
+    METRICS VW_FACT_BOOKING.BOOKING
+    WHERE DIM_MONTH.FISCALYEAR = '2025/2026'
+);
+
+-- Q07 | BOOKINGS | Show monthly bookings for fiscal year 2025/2026.
+SELECT FISCALYEAR_MON, MON_YEAR, BOOKING
+FROM SEMANTIC_VIEW(
+    DW.REVENUE.BOOKING
+    DIMENSIONS DIM_MONTH.FISCALYEAR_MON, DIM_MONTH.MON_YEAR
+    METRICS VW_FACT_BOOKING.BOOKING
+    WHERE DIM_MONTH.FISCALYEAR = '2025/2026'
+)
+ORDER BY FISCALYEAR_MON ASC;
+
+-- Q08 | BOOKINGS | Break down bookings by booking category for fiscal year 2025/2026.
+SELECT BUCKET, BOOKING
+FROM SEMANTIC_VIEW(
+    DW.REVENUE.BOOKING
+    DIMENSIONS VW_FACT_BOOKING.BUCKET
+    METRICS VW_FACT_BOOKING.BOOKING
+    WHERE DIM_MONTH.FISCALYEAR = '2025/2026'
+)
+ORDER BY BOOKING DESC;
+
+-- Q09 | BOOKINGS | Which 10 US states had the highest bookings in fiscal year 2025/2026?
+SELECT STATE_CODE, BOOKING
+FROM SEMANTIC_VIEW(
+    DW.REVENUE.BOOKING
+    DIMENSIONS DIM_ACCOUNT.STATE_CODE
+    METRICS VW_FACT_BOOKING.BOOKING
+    WHERE DIM_MONTH.FISCALYEAR = '2025/2026'
+      AND DIM_ACCOUNT.STATE_CODE NOT IN ('Unknown')
+)
+ORDER BY BOOKING DESC
+LIMIT 10;
+
+-- Q10 | BOOKINGS | Which 10 customers had the highest bookings in September 2026?
+SELECT CUSTOMER_NAME, BOOKING
+FROM SEMANTIC_VIEW(
+    DW.REVENUE.BOOKING
+    DIMENSIONS DIM_ACCOUNT.CUSTOMER_NAME
+    METRICS VW_FACT_BOOKING.BOOKING
+    WHERE DIM_MONTH.MON_YEAR = 202609
+)
+ORDER BY BOOKING DESC
+LIMIT 10;
+
+-- Q11 | USAGE | How many distinct students had used our products by September 2026 in the current school year?
+SELECT COMPANY_STUDENTS
+FROM SEMANTIC_VIEW(
+    DW.USAGE.PRODUCT_USAGE
+    METRICS u.COMPANY_STUDENTS
+    WHERE u.MON_YEAR = 202609
+);
+
+-- Q12 | USAGE | How many student launch events occurred as of September 2026 in the current school year?
+-- Cumulative from start of school year through September, NOT September-only events.
+SELECT STUDENTS_LAUNCHES
+FROM SEMANTIC_VIEW(
+    DW.USAGE.PRODUCT_USAGE
+    METRICS u.STUDENTS_LAUNCHES
+    WHERE u.MON_YEAR = 202609
+);
+
+-- Q13 | USAGE | Which 10 US states had the most distinct students as of September 2026?
+SELECT COUNTRY, STATE_CODE, STATE_STUDENTS
+FROM SEMANTIC_VIEW(
+    DW.USAGE.PRODUCT_USAGE
+    DIMENSIONS u.COUNTRY, u.STATE_CODE
+    METRICS u.STATE_STUDENTS
+    WHERE u.MON_YEAR = 202609
+      AND u.COUNTRY = 'United States of America'
+      AND u.STATE_CODE <> 'Unknown'
+)
+ORDER BY STATE_STUDENTS DESC
+LIMIT 10;
+
+-- Q14 | USAGE | Which 10 districts had the most distinct students as of September 2026?
+SELECT ORGANIZATION_DISTRICT_ID, DISTRICT_NAME, DISTRICT_STUDENTS
+FROM SEMANTIC_VIEW(
+    DW.USAGE.PRODUCT_USAGE
+    DIMENSIONS u.ORGANIZATION_DISTRICT_ID, u.DISTRICT_NAME
+    METRICS u.DISTRICT_STUDENTS
+    WHERE u.MON_YEAR = 202609
+)
+ORDER BY DISTRICT_STUDENTS DESC
+LIMIT 10;
+
+-- Q15 | USAGE | How many distinct students had we reached by June 2026 (school year 2025/2026)?
+SELECT COMPANY_STUDENTS
+FROM SEMANTIC_VIEW(
+    DW.USAGE.PRODUCT_USAGE
+    METRICS u.COMPANY_STUDENTS
+    WHERE u.SCHOOLYEAR = '2025/2026'
+      AND u.SCHOOLYEAR_MON = 12
+);
