@@ -80,7 +80,7 @@ flowchart LR
 | Q03 | ARR | FY 2025/2026 ending ARR | June 2026 snapshot; fiscal month 12 |
 | Q04 | ARR | Top 10 US states by September ARR | Rank state-level ARR in descending order |
 | Q05 | ARR | Top 10 customers by September ARR | Group by customer, not individual account |
-| Q06 | Booking | Total FY 2025/2026 bookings | Sum July-June booking flows |
+| Q06 | Booking | Total FY 2025/2026 bookings | Sum July-June booking flows |
 | Q07 | Booking | Monthly FY 2025/2026 bookings | Twelve months in fiscal order |
 | Q08 | Booking | Fiscal-year bookings by category | Use stored `BUCKET` categories |
 | Q09 | Booking | Top 10 US states by fiscal-year bookings | Rank additive fiscal-year totals |
@@ -138,7 +138,7 @@ The `GROUND_TRUTH` object in the existing implementation includes:
 | Field | Purpose |
 |---|---|
 | `ground_truth_output` | Expected numerical answer and business evaluation requirements |
-| `test_id` | Stable case identifier, Q01-Q15 |
+| `test_id` | Stable case identifier, Q01-Q15 |
 | `domain` | ARR, BOOKING or USAGE |
 | `expected_semantic_view` | Intended semantic data source (custom metadata) |
 

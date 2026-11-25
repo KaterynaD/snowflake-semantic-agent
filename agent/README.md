@@ -167,7 +167,7 @@ The skill directs the agent to use the geographic metric matching the requested 
 
 It also distinguishes `STUDENTS_LAUNCHES` from unique students. Launch events can be summed across nonoverlapping geographic entities, but not across cumulative school-year snapshots or overlapping product and grade rollups. In particular, one lesson can belong to several products, so product-level launch counts cannot be summed to obtain the overall number of actual launches. The precomputed `(All)` product total is necessary when atomic events are unavailable.
 
-Both fiscal and school years run July-June in this project. The skill tells the agent which reporting concept to apply and how to label the results. A usage snapshot for September 2026 represents cumulative activity since July 2026, not September-only activity.
+Both fiscal and school years run July-June in this project. The skill tells the agent which reporting concept to apply and how to label the results. A usage snapshot for September 2026 represents cumulative activity since July 2026, not September-only activity.
 
 ### Customer and account context
 
