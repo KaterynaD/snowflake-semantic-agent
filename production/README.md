@@ -7,8 +7,8 @@
 
 Two approaches to operating an AI analytics solution, depending on team size, business requirements, and operational complexity:
 
-- [Minimum Viable Production](production/minimum-viable-production.md)  a lightweight, practical approach for small data teams or a single Analytics Engineer.
-- **Comprehensive Production Roadmap (described below)**  an extended architecture with automated CI/CD, observability, regression testing, and deployment quality gates.
+- [Minimum Viable Production](minimum-viable-production.md) a lightweight, practical approach for small data teams or a single Analytics Engineer.
+- **Comprehensive Production Roadmap (described below)** an extended architecture with automated CI/CD, observability, regression testing, and deployment quality gates.
 
 ## Overview
 
