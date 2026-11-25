@@ -1,6 +1,6 @@
 # Snowflake-Native Analytics Agent with Semantic Views and MCP
 
-[Project Overview](README.md) · [Data Model](data/README.md) · [Semantic Views](semantic_views/README.md) · [Cortex Agent](agent/README.md) · [Evaluation](evaluation/README.md) · [MCP Integration](mcp/README.md) · [Demo](demo/README.md)
+[Project Overview](README.md) · [Data Model](data/README.md) · [Semantic Views](semantic_views/README.md) · [Cortex Agent](agent/README.md) · [Evaluation](evaluation/README.md) · [MCP Integration](mcp/README.md) · [Demo](demo/README.md) · [Production Roadmap](production/README.md)
 
 ---
 
@@ -202,6 +202,16 @@ ORDER BY c.fiscalyear_mon;
 - Evaluation results should be interpreted in the context of the tested agent version, scoring criteria, and data quality. Successful SQL execution alone does not establish answer correctness.
 - The implementation documents a specific tested configuration, not a universal security or deployment pattern.
 
+## From Prototype to Production
+
+The current implementation demonstrates the core capabilities of a governed, Snowflake-native AI analytics agent.
+
+The proposed production architecture extends this implementation with agent observability, monitoring-driven evaluation datasets, automated regression testing, CI/CD quality gates, controlled version promotion, security validation, and rollback procedures.
+
+The objective is to establish a continuous improvement lifecycle in which real business questions inform semantic model enhancements, approved evaluation cases, and measurable release quality.
+
+See [Production Roadmap](production/README.md) for the proposed architecture, implementation plan, and illustrative SQL, Python, and GitHub Actions examples.
+
 ## Repository structure
 
 ```text
@@ -214,7 +224,8 @@ ORDER BY c.fiscalyear_mon;
 +-- skills/             # Cortex Agent SKILLS md files
 +-- evaluation/         # Evaluation questions, reference SQL, and results
 +-- assets/             # Architecture and selected technical screenshots
-+-- demo/               # Business walkthrough (planned)
++-- demo/               # Business walkthrough
++-- production/         # Production Roadmap
 ```
 
 ## Related project
