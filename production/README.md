@@ -4,6 +4,12 @@
 
 ---
 
+
+Two approaches to operating an AI analytics solution, depending on team size, business requirements, and operational complexity:
+
+- [Minimum Viable Production](production/minimum-viable-production.md)  a lightweight, practical approach for small data teams or a single Analytics Engineer.
+- **Comprehensive Production Roadmap (described below)**  an extended architecture with automated CI/CD, observability, regression testing, and deployment quality gates.
+
 ## Overview
 
 The existing project demonstrates a Snowflake-native business analytics agent built on governed Semantic Views, Cortex Analyst, Cortex Agent, domain-specific skills, custom account lookup, Cortex Search, and a managed MCP server.
