@@ -211,7 +211,7 @@ ORDER BY c.fiscalyear_mon;
 +-- semantic_views/     # ARR, Booking, Product Usage semantic definitions
 +-- agent/              # Cortex Agent, custom tools, and domain skills
 +-- mcp/                # Managed MCP server, access, OAuth, and connection guide
-+-- validation/         # Semantic view reconciliation queries
++-- skills/             # Cortex Agent SKILLS md files
 +-- evaluation/         # Evaluation questions, reference SQL, and results
 +-- assets/             # Architecture and selected technical screenshots
 +-- demo/               # Business walkthrough (planned)

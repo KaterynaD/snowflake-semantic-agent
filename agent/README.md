@@ -1,6 +1,8 @@
 # Cortex Agent Orchestration, Business Knowledge and Custom Tools
 
-[? Project overview](../README.md) | [Semantic Views](../semantic_views/README.md)
+[Project Overview](../README.md) · [Data Model](../data/README.md) · [Semantic Views](../semantic_views/README.md) · [Cortex Agent](../agent/README.md) · [Evaluation](../evaluation/README.md) · [MCP Integration](../mcp/README.md) · [Demo](../demo/README.md)
+
+---
 
 ## Overview
 
@@ -139,9 +141,9 @@ This project represents that knowledge using three domain-specific `SKILL.md` fi
 
 | Skill | Responsibility |
 | --- | --- |
-| [customer-account-context](skills/customer-account-context/SKILL.md) | Account identity, commercial versus operational hierarchy, paying-customer definition, state initiatives and product access |
-| [financial-metric-interpretation](skills/financial-metric-interpretation/SKILL.md) | Choosing the appropriate ARR type based on reporting intent, distinguishing balances from flows and interpreting financial results |
-| [student-usage-interpretation](skills/student-usage-interpretation/SKILL.md) | Distinct students versus launch events, school-year snapshots, geographic metric selection and overlapping categories |
+| [customer-account-context](../skills/customer-account-context/SKILL.md) | Account identity, commercial versus operational hierarchy, paying-customer definition, state initiatives and product access |
+| [financial-metric-interpretation](../skills/financial-metric-interpretation/SKILL.md) | Choosing the appropriate ARR type based on reporting intent, distinguishing balances from flows and interpreting financial results |
+| [student-usage-interpretation](../skills/student-usage-interpretation/SKILL.md) | Distinct students versus launch events, school-year snapshots, geographic metric selection and overlapping categories |
 
 These skills express business glossary concepts, relationships and rules as natural-language guidance a lightweight, ontology-like representation of business context. They are not a formal ontology, a knowledge graph or an executable inference engine. The language model interprets and applies the rules to the available evidence.
 
@@ -332,16 +334,14 @@ Evaluation examines not just numerical results but also tool selection, ambiguit
 ```text
 agent/
 +-- README.md
-+-- business_analytics_agent.sql
-+-- tools/
-¦   +-- account_query.sql
-+-- skills/
-    +-- customer-account-context/
-    ¦   +-- SKILL.md
-    +-- financial-metric-interpretation/
-    ¦   +-- SKILL.md
-    +-- student-usage-interpretation/
-        +-- SKILL.md
++-- BUSINESS_ANALYTICS_AGENT.sql
+skills/
++-- customer-account-context/
+¦   +-- SKILL.md
++-- financial-metric-interpretation/
+¦   +-- SKILL.md
++-- student-usage-interpretation/
+¦   +-- SKILL.md
 ```
 
 The account knowledge view and supporting tables are documented in [Data Model](../data/README.md). The metric definitions are documented in [Semantic Views](../semantic_views/README.md). This layout assumes the lowercase repository structure described in the root README.

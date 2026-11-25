@@ -244,13 +244,13 @@ For semantic model reconciliation, agent evaluation metrics and versioning, see 
 ```text
 mcp/
 +-- README.md
-+-- mcp_server.sql
-+-- role_and_user.sql
-+-- oauth_integration.sql
++-- MCP.sql
++-- Role and User.sql
++-- Oath Security Integration.sql
 +-- snowflake-mcp-chatgpt.md
 ```
 
-The SQL filenames follow the proposed lowercase repository layout; rename the archived scripts accordingly or adjust the references to match the final repository. The query execution analysis is not yet included.
+
 
 ## References
 

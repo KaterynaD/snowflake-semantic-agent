@@ -167,7 +167,7 @@ flowchart LR
 
 ### Overlapping populations: why neither SUM nor MAX is a rollup
 
-Consider two schools in the same district. School A has 100 distinct students, school B has 80, and 20 students moved from Achool A to School B. These 20 students have usage counted for both schools.
+Consider two schools in the same district. School A has 100 distinct students, school B has 80, and 20 students moved from School A to School B. These 20 students have usage counted for both schools.
 
 ```mermaid
 flowchart TD
@@ -241,7 +241,6 @@ When the product dimension is not requested, the semantic metric
 must use the precomputed `(All)` product value rather than sum
 individual product categories.
 
-The resulting aggregation behavior reflects two different
 
 ### Source and logical model
 
@@ -305,8 +304,6 @@ Unlike distinct-student counts, launch counts measure individual activity events
 The source contains precomputed school-level launch counts, so a single semantic metric can be used at school, district, state, country, and company levels. Separate precomputed geographic metrics are not required for launch events.
 
 However, the source is not an atomic event table. It contains cumulative school-year-to-date snapshots (starting in July), as well as precomputed `(All)` grade and product totals. Consequently, the metric has different aggregation behavior across dimensions:
-
-Unlike distinct-student counts, launch counts measure individual activity events, not unique people. If the same student attends two schools or districts and launches a product in both, every launch contributes to the total. There is no need to deduplicate the student across geographic entities.
 
 
 
