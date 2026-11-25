@@ -324,7 +324,7 @@ The agent can be configured and evaluated in the Snowflake interface. The projec
 ![Selecting the agent draft for evaluation](../assets/screenshots/agent/agent-version-selection.png) 
 *Important! Use draft version to evaluate non-published agent changes. Default is Version 1*
 
-The observed tests in Snowflake and through ChatGPT demonstrate semantic-view queries and use of the custom account lookup. Some important limitations remain:
+The observed tests in Snowflake and through ChatGPT demonstrate semantic-view queries and use of the custom account lookup. 
 
 
 Evaluation examines not just numerical results but also tool selection, ambiguity handling, metric interpretation, customer classification. See [Evaluation](../evaluation/README.md).

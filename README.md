@@ -37,6 +37,7 @@ flowchart TD
             Booking[Booking]
             Usage[Product Usage]
         end
+        Search[Cortex Search Services]
         Knowledge[Account knowledge view]
         DW[Existing dimensional warehouse]
         MCP -->|business_agent| Agent
@@ -47,11 +48,15 @@ flowchart TD
         Analyst --> ARR
         Analyst --> Booking
         Analyst --> Usage
+        ARR -.->|Value resolution| Search
+        Booking -.->|Value resolution| Search
+        Usage -.->|Value resolution| Search
         Lookup --> Knowledge
         ARR --> DW
         Booking --> DW
         Usage --> DW
         Knowledge --> DW
+        Search -->|Indexed dimension values| DW
     end
     ChatGPT -->|MCP / OAuth| MCP
 ```
@@ -206,11 +211,19 @@ ORDER BY c.fiscalyear_mon;
 
 The current implementation demonstrates the core capabilities of a governed, Snowflake-native AI analytics agent.
 
-The proposed production architecture extends this implementation with agent observability, monitoring-driven evaluation datasets, automated regression testing, CI/CD quality gates, controlled version promotion, security validation, and rollback procedures.
+Moving this solution into production requires a sustainable approach to monitoring, evaluation, maintenance, security, and controlled deployment. The level of operational complexity should be proportional to the business value, usage, and risk of the solution.
 
 The objective is to establish a continuous improvement lifecycle in which real business questions inform semantic model enhancements, approved evaluation cases, and measurable release quality.
 
-See [Production Roadmap](production/README.md) for the proposed architecture, implementation plan, and illustrative SQL, Python, and GitHub Actions examples.
+Two production approaches are proposed:
+
+- **[Minimum Viable Production](production/minimum-viable-production.md)**  a practical approach for small data teams or a single Analytics Engineer, using native Snowflake monitoring, incremental evaluation datasets, SQL-based regression testing, and controlled manual deployment.
+
+- **[Comprehensive Production Roadmap](production/README.md)**  an extended architecture for organizations requiring advanced observability, automated regression testing, CI/CD quality gates, environment isolation, controlled version promotion, and rollback procedures.
+
+Both approaches follow the same principles of data governance, evaluation-driven improvement, and controlled change management, while differing in the level of automation and operational complexity.
+
+The production approaches are proposed implementation plans, supported by illustrative SQL, YAML, Python, and GitHub Actions examples, rather than implemented components of the current project.
 
 ## Repository structure
 

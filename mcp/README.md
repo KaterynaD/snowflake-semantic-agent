@@ -246,7 +246,7 @@ mcp/
 +-- README.md
 +-- MCP.sql
 +-- Role and User.sql
-+-- Oath Security Integration.sql
++-- OAuth Security Integration.sql
 +-- snowflake-mcp-chatgpt.md
 ```
 
