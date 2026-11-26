@@ -6,6 +6,8 @@
 
 **Combining governed business metrics, domain knowledge, and AI reasoning in a Snowflake-native analytics architecture.**
 
+*Account names shown in examples are masked and metric values are modified for demonstration purposes. While the data does not represent actual business performance, the architecture, semantic models, business rules, and AI interactions reflect a working implementation.*
+
 ## Overview
 
 This project demonstrates an end-to-end business analytics agent for an educational SaaS company, built on Snowflake Semantic Views, Cortex Analyst, Cortex Agent, domain-specific skills, custom tools, and a Snowflake-managed Model Context Protocol (MCP) server.
