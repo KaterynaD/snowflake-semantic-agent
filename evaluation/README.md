@@ -3,6 +3,15 @@
 [Project Overview](../README.md) · [Data Model](../data/README.md) · [Semantic Views](../semantic_views/README.md) · [Cortex Agent](../agent/README.md) · [Evaluation](../evaluation/README.md) · [MCP Integration](../mcp/README.md) · [Demo](../demo/README.md) · [Production Roadmap](../production/README.md)
 
 ---
+## Evaluation Scope
+
+This project prioritizes agent-level evaluation because Cortex Agent generates SQL within its own orchestration context,
+including business instructions, skills, and tool selection.
+
+Standalone Cortex Analyst evaluations of individual semantic views are optional diagnostic tests useful for isolating SQL generation issues, but they do not fully represent the agent's
+end-to-end behavior.
+
+Semantic metric correctness is validated separately through deterministic SQL reconciliation tests.
 
 ## 1. Evaluation strategy
 
