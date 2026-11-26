@@ -94,7 +94,7 @@ An account's state-initiative flag may help explain why it has product access bu
 See [Cortex Agent](../agent/README.md) for the documented reasoning workflow.
 
 
-## What the demo demonstrates  and what it does not
+## What the demo demonstrates and what it does not
 
 The examples demonstrate an end-to-end path from a business question through the Cortex Agent, semantic and contextual tools, and a readable answer in **two interfaces**. They also illustrate why a semantic layer alone is not enough: domain knowledge about fiscal years, renewal timing, customer hierarchies and distinct-count grain matters to interpretation.
 
@@ -102,11 +102,11 @@ The observed tests are **not** a claim of perfect tool selection or reasoning. C
 
 ## Related documentation
 
-- [Semantic Views](../semantic_views/README.md)  metrics, aggregation behavior and verified queries.
-- [Cortex Agent](../agent/README.md)  tools, skills, customer reasoning and agent configuration.
-- [Evaluation](../evaluation/README.md)  reference questions, validation and limitations.
-- [MCP Integration](../mcp/README.md)  managed server, OAuth and ChatGPT connection.
-- [Data Model](../data/README.md)  supporting dimensional model.
+- [Semantic Views](../semantic_views/README.md) metrics, aggregation behavior and verified queries.
+- [Cortex Agent](../agent/README.md) tools, skills, customer reasoning and agent configuration.
+- [Evaluation](../evaluation/README.md) reference questions, validation and limitations.
+- [MCP Integration](../mcp/README.md) managed server, OAuth and ChatGPT connection.
+- [Data Model](../data/README.md) supporting dimensional model.
 
 ---
 
