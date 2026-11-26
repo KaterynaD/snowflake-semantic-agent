@@ -21,16 +21,9 @@ The examples below are from the project's November 2026 test sessions, using war
 | ARR comparison | Distinguish three versions of a semi-additive month-end balance |
 | Student engagement | Use pre-aggregated distinct counts and cumulative school-year snapshots |
 | Customer versus product user | Combine account hierarchy attributes with separately retrieved ARR evidence |
-| Query inspection | Verify that analytical SQL calls `SEMANTIC_VIEW(...)` |
+
 
 ## 1. Executive overview: one question, three semantic views
-
-**Prompt**
-
-> Give me an executive business overview for September 2026. Include total monthly bookings, month-end ARR, and the number of distinct students reached during the school year through September. Present the three KPIs in a summary table and explain what each measures.
-
-**Observed results**
-
 
 **ChatGPT:**
 
